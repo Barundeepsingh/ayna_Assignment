@@ -19,7 +19,8 @@ export const removeToken = () => {
 
 // New functions for interacting with Strapi API
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:1337';
+const API_URL = process.env.REACT_APP_API_URL || 'https://favorable-wisdom-9b8eb902e1.strapiapp.com';
+// https://favorable-wisdom-9b8eb902e1.strapiapp.com
 
 // Fetch all sessions for a specific user
 export const fetchSessions = async (userId) => {

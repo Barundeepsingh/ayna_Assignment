@@ -1,6 +1,5 @@
 import { Button, Space } from "antd";
-import React, {useEffect} from "react";
-import { CgWebsite } from "react-icons/cg";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import { removeToken } from "../../helpers";
@@ -10,11 +9,6 @@ const AppHeader = () => {
   const { user, setUser } = useAuthContext();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      navigate("/session", { replace: true });
-    }
-  }, [user, navigate]);
 
   const handleLogout = () => {
     removeToken();

@@ -10,7 +10,7 @@ import {
   Spin,
   Typography,
 } from "antd";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
@@ -22,11 +22,17 @@ const SignIn = () => {
   const { isDesktopView } = useScreenSize();
   const navigate = useNavigate();
 
-  const { setUser } = useAuthContext();
+  const { user, setUser } = useAuthContext();
 
   const [isLoading, setIsLoading] = useState(false);
 
   const [error, setError] = useState("");
+
+    useEffect(() => {
+    if (user) {
+      navigate("/session", { replace: true });
+    }
+  }, [user, navigate]);
 
   const onFinish = async (values) => {
     setIsLoading(true);
